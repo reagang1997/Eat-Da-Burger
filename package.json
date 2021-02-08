@@ -1,0 +1,26 @@
+{
+  "name": "Eat-Da-Burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reagang1997/Eat-Da-Burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reagang1997/Eat-Da-Burger/issues"
+  },
+  "homepage": "https://github.com/reagang1997/Eat-Da-Burger#readme"
+}
