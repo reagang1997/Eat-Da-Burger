@@ -22,6 +22,16 @@ const objToSql = (ob) => {
     return arr.toString();
 };
 
+const printQuestionMarks = (num) => {
+    const arr = [];
+
+    for (let i = 0; i < num; i++) {
+        arr.push('?');
+    }
+
+    return arr.toString();
+};
+
 const orm = {
     selectAll(from, cb) {
         const queryString = 'SELECT * FROM ??';
@@ -30,9 +40,19 @@ const orm = {
             cb(rows);
         });
     },
-    insertOne(into, values, cb) {
-        const queryString = 'INSERT INTO ?? SET ??';
-        connection.query(queryString, [into, values], (err, rows) => {
+    create(table, cols, values, cb) {
+        console.log('in create');
+        let queryString = `INSERT INTO ${table}`;
+        queryString += ' (';
+        queryString += cols.toString();
+        queryString += ') ';
+        queryString += 'VALUES (';
+        queryString += printQuestionMarks(values.length);
+        queryString += ') ';
+
+        console.log(queryString);
+
+        connection.query(queryString, values, (err, rows) => {
             if (err) throw err;
             cb(rows);
         });
@@ -44,7 +64,7 @@ const orm = {
         queryString += ' WHERE ';
         queryString += condition;
         console.log(queryString)
-        connection.query(queryString,  (err, rows) => {
+        connection.query(queryString, (err, rows) => {
             if (err) throw err;
             cb(rows);
         })

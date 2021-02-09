@@ -33,4 +33,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
     });
 
+    const createBtn = document.getElementById('create-burger');
+
+    if (createBtn) {
+        createBtn.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const newBurger = {
+                burger_name: document.getElementById('new-burger').value.trim(),
+            };
+
+            console.log(newBurger);
+
+            fetch('/api/createBurger', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                // Make sure to serialize the JSON body
+                body: JSON.stringify(newBurger)
+            }).then(() => {
+                document.getElementById('new-burger').value = '';
+
+                console.log('Created New Burger!');
+                location.reload();
+            })
+        })
+    }
+
 });

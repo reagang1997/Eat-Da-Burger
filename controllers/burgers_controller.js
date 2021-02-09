@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
         const obj = {
             burgers: data
         };
-        console.log(obj);
         res.render('index', obj);
     })
 })
@@ -31,6 +30,12 @@ router.put('/api/devour/:id', (req, res) => {
               res.status(200).end();
         }
     );
+})
+
+router.post('/api/createBurger', (req, res) => {
+    burger.create(['burger_name'], [req.body.burger_name], (result) => {
+        res.json({id: result.insertId});
+    })
 })
 
 module.exports = router;
