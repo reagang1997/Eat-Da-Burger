@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 // Reload the page so the user can see the new quote
                 if (res.ok) {
                     console.log(`changed devoured to: ${newDevourState}`);
-                    location.reload('/');
+                    location.reload();
                 } else {
                     alert('something went wrong!');
                 }
