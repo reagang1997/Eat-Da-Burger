@@ -10,6 +10,20 @@ img{
 
 ul{
     list-style: none;
+    height: auto;
+    box-shadow: 5px 10px black;
+}
+li{
+    padding-top: 10px;
+    border-bottom: black 1px solid;
+    height: 75px;
+    margin-left: -40px;
+}
+
+form{
+    width: 500px;
+    display: block;
+    margin: auto;
 }
 
 #not-eaten{
@@ -35,14 +49,16 @@ ul{
     margin-right: auto;
 }
 .burger-text{
-    margin-right: 100px;
 }
 
 .btn{
     background-color: black;
     color: white;
+    float: right;
+    margin-right: 25px;
 }
 
 .my-container{
     text-align: center;
+    
 }

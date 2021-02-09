@@ -1,30 +1,34 @@
 <div class="my-container">
-        <img src="./public/assets/img/burger.png" alt="Eat-da-burger">
+        <img src="assets/img/burger.png" alt="Eat-da-burger">
         <h1>Eat-da-burger!</h1>
         
         <div class="row">
             <div class="col-md-6">
                 <ul id="not-eaten">
 
-                    {{#each burger}}
-                    {{#if devoured}}
+                    {{#each burgers}}
+                    {{#unless devoured}}
                     <li class="burger-item">
-                        <span class="burger-text">{{this.name}}</span>
-                        <button data-burger-id={{this.id}}>Devour!</button>
+                        <span class="burger-text">{{this.burger_name}}</span>
+                        <button class="btn devour" data-burger-id={{this.id}}>Devour!</button>
                     </li>
-                    {{/if}}
+                    {{/unless}}
                     {{/each}}
                 </ul>
             </div>
             <div class="col-md-6">
                 <ul id="eaten">
+                    {{#each burgers}}
+                    {{#if devoured}}
                     <li id="eaten-burger">
-                        Big Mac
+                        {{this.burger_name}}
                     </li>
+                    {{/if}}
+                    {{/each}}
                 </ul>
             </div>
         </div>
-        <form action="/" method="POST">
+        <form class="create-burger" action="/" method="POST">
             <h3>Enter a New Burger</h3>
             <input name="new-burger" id="new-burger" placeholder="Big Mac">
             <button class="btn">Submit</button>
